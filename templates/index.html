@@ -3,6 +3,14 @@
 		<title>Raspberry Pi IR Remote</title>
 	</head>
 	<body>
-		hello world
+		<ul>
+			{% for light in lights %}
+				<li>
+					{{ light.name }} - {{ light.brightness }}% - {{ light.state }}
+					- <a href="/light/off/{{ light.id }}">Turn off</a>
+					- <a href="/light/on/{{ light.id }}">Turn on</a>
+				</li>
+			{% endfor %}
+		</ul>
 	</body>
 </html>	
