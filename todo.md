@@ -13,3 +13,11 @@
 3. Hive API
     3.1 Self registers with a configured "orchestration" unit
     3.2 Manages its devices, can receive commands etc
+
+Registration works whereby a node instance sends a registration message to the orchestrator,
+which then sends out requests for status from each of the nodes. If a node does not respond
+then it is set as "MIA" until it registers again.
+
+When a node registers is simply tells the orchestrator its type (irnode etc) and its name.
+
+The orchestrator will then push out configuration and commands for the node to carry out.
