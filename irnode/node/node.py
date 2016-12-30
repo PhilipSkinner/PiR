@@ -3,7 +3,10 @@ from flask import Flask
 import lirc
 import json
 
+from lib import config
+
 app = Flask(__name__)
+devices = {}
 
 #get a list of all devices
 @app.route('/devices', methods=['GET'])
@@ -33,6 +36,3 @@ def getDeviceCommands(id):
 @app.route('/devices/<id>/commands/<command>', methods=['GET'])
 def runDeviceCommand(id, command):
     return ''
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)    

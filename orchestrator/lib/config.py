@@ -7,6 +7,17 @@ config = ConfigParser.RawConfigParser()
 def _readDevicesFile():
     config.read('%s/../config/devices.conf' % dir_path)    
 
+def readOrchestratorConfig():
+    config.read('%s/../config/orchestrator.conf' % dir_path)
+
+    raw = config.options('orchestrator')
+    ret = {}    
+
+    for arg in raw:
+        ret[arg] = config.get('orchestrator', arg)
+
+    return ret
+
 def readIRDevices():       
     _readDevicesFile()
 
